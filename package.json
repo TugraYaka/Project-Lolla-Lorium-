@@ -1,5 +1,5 @@
 {
-  "name": "@tugrayaka/lolla-engine",
+  "name": "@TugraYaka/lolla-engine",
   "version": "1.0.0",
   "description": "Lolla Engine - A Cross-Platform Desktop Application",
   "main": "main.js",
@@ -27,6 +27,6 @@
   "author": "",
   "license": "PolyForm-Noncommercial-1.0.0",
   "devDependencies": {
-    "electron": "^42.0.1"
+    "electron": "^30.0.0"
   }
 }
