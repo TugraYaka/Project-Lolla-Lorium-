@@ -1,0 +1,32 @@
+{
+  "name": "@TugraYaka/lolla-engine",
+  "version": "1.0.0",
+  "description": "Lolla Engine - A Cross-Platform Desktop Application",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TugraYaka/Project-Lolla-Lorium-.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "bugs": {
+    "url": "https://github.com/TugraYaka/Project-Lolla-Lorium-/issues"
+  },
+  "homepage": "https://github.com/TugraYaka/Project-Lolla-Lorium-#readme",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js && node --check Hub/Hasteria.js && node --check packages/LoriumAgent/ChatFlower.js",
+    "test": "npm run check"
+  },
+  "keywords": [
+    "electron",
+    "engine",
+    "desktop"
+  ],
+  "author": "",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "devDependencies": {
+    "electron": "^30.0.0"
+  }
+}

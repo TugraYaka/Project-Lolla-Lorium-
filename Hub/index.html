@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <title>Lolla Engine</title>
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --surface-color: #161616;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            /* Blur yerine daha opak bir renk */
+            --card-hover: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --text-dim: #a0a0a0;
+            --accent-color: #007aff;
+            --accent-gradient: linear-gradient(135deg, #007aff 0%, #00c6ff 100%);
+            --titlebar-height: 40px;
+            --transition: all 0.3s ease;
+            /* Daha hızlı ve basit geçiş */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "SF Pro Text", "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Üst Bar */
+        #title-bar {
+            height: var(--titlebar-height);
+            background: var(--surface-color);
+            display: flex;
+            align-items: center;
+            padding-left: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            -webkit-app-region: drag;
+            user-select: none;
+            z-index: 100;
+        }
+
+        #title-bar .logo {
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* Ana Alan ve Sabit Arkaplan (Radial Gradient statik olmalı) */
+        #main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-app-region: no-drag;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 122, 255, 0.1) 0%, transparent 70%);
+        }
+
+        /* 3'lü Menü Yapısı */
+        .engine-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            width: 100%;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeIn 0.5s ease-out forwards;
+            /* Daha kısa süre ve blur'suz */
+            will-change: opacity, transform;
+        }
+
+        .engine-card {
+            aspect-ratio: 1 / 1;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 2.5rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            /* Backdrop-filter kaldırıldı (Performans için) */
+            will-change: transform, background-color;
+            /* GPU hızlandırması için */
+        }
+
+        .engine-card:hover {
+            background: var(--card-hover);
+            transform: translateY(-5px);
+            /* Ölçekleme yerine kaydırma daha akıcıdır */
+            border-color: rgba(0, 122, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* Drop-shadow yerine box-shadow */
+        }
+
+        .engine-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .engine-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            /* Filter kaldırıldı */
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .card-subtitle {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        /* Optimize Edilmiş Giriş Animasyonu */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 2rem;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            opacity: 0.3;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title-bar">
+        <div class="logo">Lolla Engine</div>
+    </div>
+
+    <div id="main-content">
+        <div class="engine-grid">
+            <!-- Packages will be loaded dynamically here -->
+        </div>
+
+
+    </div>
+    <script src="Hasteria.js"></script>
+</body>
+
+</html>
