@@ -26,6 +26,9 @@
   ],
   "author": "",
   "license": "PolyForm-Noncommercial-1.0.0",
+  "dependencies": {
+    "@TugraYaka/lorium-agent": "0.1.0"
+  },
   "devDependencies": {
     "electron": "^30.0.0"
   }
