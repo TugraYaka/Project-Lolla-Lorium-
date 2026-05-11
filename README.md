@@ -1,34 +1,22 @@
-# Lolla Engine
+# Lolla Engine & Lorium Agent
 
-Lolla Engine is a cross-platform desktop application built with Electron.
+Lolla Engine is a highly optimized, cross-platform hub (desktop application) designed to run independent window applications called "Packages".
 
-## Features
-- Cross-platform support
-- Modular engine architecture
-- Integrated ChatSection
+## How to Install and Run
+If you have downloaded the source code, follow these steps to run the application:
 
-## Installation
-
-```bash
-npm install
-```
-
-## Running the Application
-
-```bash
-npm start
-```
-
-## Publishing to GitHub Packages
-
-This project is configured to be published to GitHub Packages. To publish a new version:
-
-1. Ensure you have a personal access token (PAT) with `write:packages` scope.
-2. Authenticate with GitHub Packages:
+1. **Install Node.js**: Make sure you have Node.js installed on your system.
+2. **Install Dependencies**: Open your terminal in the project folder and run:
    ```bash
-   npm login --scope=@TugraYaka --registry=https://npm.pkg.github.com
+   npm install
    ```
-3. Publish:
+3. **Start the Engine**: Run the application with:
    ```bash
-   npm publish
+   npm start
    ```
+
+## Installing Packages
+Lolla engine fetches packages like `Lorium Agent` from GitHub Packages. To download official packages from the `@tugrayaka` scope, make sure you have access or they are public!
+
+---
+*Licensed under PolyForm Noncommercial 1.0.0. See LICENSE file for details.*
