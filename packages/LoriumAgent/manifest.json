@@ -1,9 +1,0 @@
-{
-  "name": "LoriumAgent",
-  "displayName": "Lorium Agent",
-  "description": "Chat • Control • Voice",
-  "icon": "🧠",
-  "entry": "ChatFlower.html",
-  "width": 1400,
-  "height": 900
-}
