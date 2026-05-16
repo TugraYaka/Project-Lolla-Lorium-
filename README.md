@@ -32,7 +32,7 @@ Lolla uses a dynamic package system. Packages are located in the `packages/` dir
 ### Adding Lorium Agent
 To install the Lorium Agent package:
 ```bash
-npm install @TugraYaka/lorium-agent
+npm install @tugrayaka/lorium-agent
 ```
 
 ## ⚖️ License
